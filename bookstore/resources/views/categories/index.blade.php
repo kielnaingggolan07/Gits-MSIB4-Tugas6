@@ -13,8 +13,8 @@
                         <h6 style="font-size: 10px">Genre: {{ $item->genre }}</h6>
                         <h6 style="font-size: 10px">Deskripsi: {{ $item->description }}</h6>  
                     </div>
-                <a href="/category/edit"><button class="btn btn-primary mt-2" type="button" style="margin-right: 10px">Ubah</button></a>
-                <a href="/category/delete"><button class="btn btn-warning mt-2" type="button">Hapus</button></a>
+                <a href="/category/{{ $item->id }}/edit"><button class="btn btn-primary mt-2" type="button" style="margin-right: 10px">Ubah</button></a>
+                <a href="/category/{{ $item->id }}/delete"><button class="btn btn-warning mt-2" type="button">Hapus</button></a>
             </div>
         </div>
     </body>

@@ -36,6 +36,10 @@ class CategoryController extends Controller
         //     'category_description' => 'required',
         // ]);
 
+        // Category::create([
+        //     'genre'=>$validated('category_genre'),
+        //     'description'=>$validated('category_description'),
+        // ]);
         // dd($request->all());
         Category::create([
             'genre'=>$request->input('category_genre'),
@@ -55,18 +59,42 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        
+        $data['categories'] = Category::where('id',$id )->get();
+        // $data['categories'] = Category::all();
+        return view('/categories/edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        $data['categories'] = Category::all();
-        return view('/categories/edit', $data);
+        //   $validated = $request->validate([
+        //     'category_genre' => 'required',
+        //     'category_description' => 'required',
+        // ]);
+
+        // Category::create([
+        //     'genre'=>$validated('category_genre'),
+        //     'description'=>$validated('category_description'),
+        // ]);
+
+        // Category::where('id', $id)->update([
+        //     'genre'=>$validated('category_genre'),
+        //     'description'=>$validated('category_description')
+        // ]);
+
+        Category::where('id', $id)->update([
+            'genre'=>$request->input('category_genre'),
+            'description'=>$request->input('category_description')
+        ]);
+
+        return redirect('/category');
+        // $data['categories'] = Category::all();
+        // return view('/categories/edit', $data);
     }
 
     /**

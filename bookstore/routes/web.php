@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,16 +20,38 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-route::get('/product', [ProductController::class, 'index']);
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::middleware(['auth:web'])->group(function () {
+    Route::get('/product', function () {
+        return view('product');
+    })->middleware('redirectIfNotLoggedIn');
+    
+    Route::get('/category', function () {
+        return view('category');
+    })->middleware('redirectIfNotLoggedIn');
+});
+
+Route::get('/register', [AuthController::class, "register"])->name('register');
+Route::get('/login', [AuthController::class, "login"])->name('login');
+Route::get('/logout', [AuthController::class, "logout"])->name('logout');
+
+Route::post('/register', [AuthController::class, "doRegister"])->name('do.register');
+Route::post('/login', [AuthController::class, "doLogin"])->name('do.login');
+
+route::get('/product', [ProductController::class, 'index'])->middleware('redirectIfNotLoggedIn');
 route::get('product/add', [ProductController::class, 'create']);
 Route::get('product/{id}/edit', [ProductController::class, 'edit']);
 Route::get('product/{id}/delete', [ProductController::class, 'destroy']);
 Route::post('/product',[ProductController::class, 'store']);
 Route::put('/product/{id}', [ProductController::class, 'update']);
 
-route::get('/category', [CategoryController::class, 'index']);
-route::get('category/add', [CategoryController::class, 'create']);
+Route::get('/category', [CategoryController::class, 'index'])->middleware('redirectIfNotLoggedIn');
+Route::get('category/add', [CategoryController::class, 'create']);
+Route::get('category/{id}/edit', [CategoryController::class, 'edit']);
+Route::get('category/{id}/delete', [CategoryController::class, 'destroy']);
 Route::post('/category',[CategoryController::class, 'store']);
-Route::get('category/edit', [CategoryController::class, 'edit']);
-Route::get('category/delete', [CategoryController::class, 'destroy']);
-Route::put('/category/', [CategoryController::class, 'update']);
+Route::put('/category/{id}', [CategoryController::class, 'update']);
+

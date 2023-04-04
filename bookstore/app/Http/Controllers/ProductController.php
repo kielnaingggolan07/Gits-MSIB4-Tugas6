@@ -35,25 +35,33 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'product_judul' => 'required',
-            'Product_pengarang' => 'required',
-            'product_penerbit' => 'required',
-            'product_tahunterbit' => 'required|numeric',
-            'product_harga' => 'required|numeric',
-            'category_id' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'product_judul' => 'required',
+        //     'Product_pengarang' => 'required',
+        //     'product_penerbit' => 'required',
+        //     'product_tahunterbit' => 'required|numeric',
+        //     'product_harga' => 'required|numeric',
+        //     'category_id' => 'required',
+        // ]);
 
-        // dd($request->all());
+        // // dd($request->all());
+        // Product::create([
+        //     'judul'=>$validated('product_judul'),
+        //     'pengarang'=>$validated('product_pengarang'),
+        //     'penerbit'=>$validated('product_penerbit'),
+        //     'tahunterbit'=>$validated('product_tahunterbit'),
+        //     'harga'=>$validated('product_harga'),
+        //     'category_id'=>$validated('category_id'),
+        // ]);
+
         Product::create([
-            'judul'=>$validated('product_judul'),
-            'pengarang'=>$validated('product_pengarang'),
-            'penerbit'=>$validated('product_penerbit'),
-            'tahunterbit'=>$validated('product_tahunterbit'),
-            'harga'=>$validated('product_harga'),
-            'category_id'=>$validated('category_id'),
+            'judul'=>$request->input('product_judul'),
+            'pengarang'=>$request->input('product_pengarang'),
+            'penerbit'=>$request->input('product_penerbit'),
+            'tahunterbit'=>$request->input('product_tahunterbit'),
+            'harga'=>$request->input('product_harga'),
+            'category_id'=>$request->input('category_id'),
         ]);
-
         return redirect('/product');
     }
 
