@@ -3,6 +3,26 @@
 @section('title', 'login')
 
 @section('content')
+
+<style>
+    body {
+        background-image: url({{ asset('assets/book.png')  }});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 500px;
+        height: 800px;
+        overflow: hidden;
+    }
+    .card {
+        position: absolute;
+        top: 45%;
+        left: 15%;
+        transform: translateY(-50%);
+    }
+</style>
+
+<body>
 <div class="col-md-4 mx-auto my-5">
     <div class="card">
         <div class="card-body">
@@ -31,4 +51,5 @@
         </div>
     </div>
 </div>
+</body>
 @endsection

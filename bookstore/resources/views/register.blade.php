@@ -4,6 +4,26 @@
 @section('title', 'register')
 
 @section('content')
+<style>
+    body {
+        background-image: url({{ asset('assets/book.png')  }});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 500px;
+        height: 800px;
+        overflow: hidden;
+    }
+    .card {
+        position: absolute;
+        top: 40%;
+        left: 10%;
+        transform: translateY(-40%);
+        width: 400px;
+    }
+</style>
+
+<body>
 <div class="col-md-4 mx-auto my-5">
     <div class="card">
         <div class="card-body">
@@ -11,7 +31,7 @@
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" aria-describedby="nameHelp">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" aria-describedby="nameHelp" autocomplete="off">
                         @error('name')
                             <div id="nameHelp" class="form-text">{{ $message }}</div>
                         @enderror
@@ -48,5 +68,5 @@
         </div>
     </div>
 </div>
-    
+</body>
 @endsection
