@@ -63,4 +63,8 @@ php artisan serve
 ```
 * Buka web browser dan akses http://127.0.0.1:8000/home
 
+## Stack yang Digunakan
+* Laravel 9
+* CSS
+* Bootstrap 5.2
 
