@@ -30,7 +30,7 @@ Hesekiel Nainggolan | Institut Teknologi Sepuluh Nopember
 
 ## Demo Aplikasi
 
-[![Demo Tugas 6](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/TCspReZX3Bo)
+https://user-images.githubusercontent.com/94334247/229985367-7d9972b0-7478-440e-9232-1f4580d164a3.mp4
 
 ## Cara Menggunakan
 * Clone Repository Ini
