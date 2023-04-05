@@ -30,9 +30,7 @@ Hesekiel Nainggolan | Institut Teknologi Sepuluh Nopember
 
 ## Demo Aplikasi
 
-<video width="640" height="360" controls>
-  <source src="./main/Demo-Tugas6.mp4" type="video/mp4">
-</video>
+[![Demo-Tugas6]](https://youtu.be/TCspReZX3Bo)
 
 ## Cara Menggunakan
 * Clone Repository Ini
