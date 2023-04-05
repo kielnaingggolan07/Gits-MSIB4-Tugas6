@@ -67,4 +67,6 @@ php artisan serve
 * Laravel 9
 * CSS
 * Bootstrap 5.2
+* HTML
+* Authentication manual
 
