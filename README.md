@@ -30,4 +30,39 @@ Hesekiel Nainggolan | Institut Teknologi Sepuluh Nopember
 
 ## Demo Aplikasi
 
+<video width="640" height="360" controls>
+  <source src="./main/Demo-Tugas6.mp4" type="video/mp4">
+</video>
+
+## Cara Menggunakan
+* Clone Repository Ini
+```
+git clone https://github.com/kielnaingggolan07/Gits-MSIB4-Tugas6.git
+```
+* Copy Paste file .env.example dan ubah namanya menjadi .env
+```
+cp .env.example .env
+```
+* Ubah nama database pada DB_Database sesuai dengan database di file .env dan  meng-cache konfigurasi Laravel setelah mengubah file .env
+```
+php artisan config:cache
+```
+* Generate kunci enkripsi Laravel
+```
+php artisan key:generate
+```
+* Install dependencies dengan Composer
+```
+composer install
+```
+* Migrasi database
+```
+php artisan migrate
+```
+* Jalankan server Laravel
+```
+php artisan serve
+```
+* Buka web browser dan akses http://127.0.0.1:8000/home
+
 
